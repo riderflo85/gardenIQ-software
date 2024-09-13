@@ -1,12 +1,11 @@
 #include <Arduino.h>
+#include "api_communications.h"
+#include "sensors.h"
 
 const int tempSensorPin = A1;
-int brutTempValue;
 float temp;
-
 String dataReceived;
 
-// String readData();
 
 void setup() {
   pinMode(tempSensorPin, INPUT);
@@ -15,8 +14,7 @@ void setup() {
 
 
 void loop() {
-  brutTempValue = analogRead(tempSensorPin);
-  temp = (brutTempValue / 1023.0) * 5.0 * 1000 / 10; // Convert to °C
+  temp = readTemperature(tempSensorPin);
   Serial.println(temp);
 
 
@@ -27,8 +25,4 @@ void loop() {
   }
 
   delay(1000); // 1 sec
-}
-
-String readData() {
-  return Serial.readString();
 }
