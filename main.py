@@ -1,7 +1,7 @@
 import time
 from machine import Timer, Pin
 
-from .software import loop_exchange_usb
+from software import loop_exchange_usb
 
 
 # ------- small setup to on and off onbaord led -------
